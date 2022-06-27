@@ -14,5 +14,10 @@
 	    b
 	    (help b tmp))))
   (if (> b a)
-      (help b a)
-      (help a b)))
+      (help (abs b) (abs a))
+      (help (abs b) (abs a))))
+
+; funcs of list
+(define (list-has-next x) (not (null? (cdr x))))
+
+(define (list-add lst x) (append lst (list x)))

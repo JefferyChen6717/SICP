@@ -16,10 +16,10 @@ def get_file_content(file_path):
     content = ''
     for line in lines:
         if 'include' in line:
+            file_name = line.split('include')[-1].replace(' ', '').replace('\n', '')
             include_content = \
-                get_file_content(line.split('include')[-1]
-                                 .replace(' ', ''))
-            content += include_content
+                get_file_content(file_name)
+            content += '; include from: ' + file_name + '\n' + ';-------------------------------\n' + include_content + ';-------------------------------\n' +  '; end of include: ' + file_name + '\n\n'
         else:
             content += line
     return content
