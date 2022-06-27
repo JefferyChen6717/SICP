@@ -1,35 +1,46 @@
-(define (normalize a b)
-  (if (> (* a b) 0)
-      (
+; include utils.scm
 
+; define rational number
 (define (make-rat n d)
-  (let ((divisor (
-    (cons
-      (/ n divisor)
-      (/ d divisor))))
+(define (abs x) (if (< x 0) (- x) x))
+  (define new-n
+    (if (< (* n d) 0)
+        (- (abs n))
+	      (abs n)))
+  (define new-d (abs d))
+  (let ((div (abs (gcd new-n new-d))))
+    (cons (/ new-n div) (/ new-d div))))
+
 (define (numer x) (car x))
 (define (denom x) (cdr x))
 
+; define calculation
 (define (add-rat x y)
   (make-rat (+ (* (numer x) (denom y))
                (* (numer y) (denom x)))
             (* (denom x) (denom y))))
+(define (sub-rat x y)
+  (make-rat (- (* (numer x) (denom y))
+               (* (numer y) (denom x)))
+            (* (denom x) (denom y))))
+(define (mul-rat x y)
+  (make-rat (* (numer x) (numer y))
+            (* (denom x) (denom y))))
+(define (div-rat x y)
+  (make-rat (* (numer x) (denom y))
+            (* (denom x) (numer y))))
+(define (equal-rat? x y)
+  (=  (* (numer x) (denom y))
+      (* (numer y) (denom x))))
 
 (define (print-rat x)
-  (display (numer x)) (display "/") (display (denom x))
-  (newline))
+  (begin
+    (display (numer x))
+    (display "/")
+    (display (denom x))
+    (newline)))
 
-(define (gcd x y)
-  (define (help x y)
-    (let ((tmp (remainder x y)))
-      (if (= tmp 0)
-          y
-          (help y tmp))))
-  (if (> x y)
-      (help x y)
-      (help y x)))
-
-(define one-half (make-rat 3 6))
+(define one-half (make-rat 2 4))
 (define one-third (make-rat 3 9))
 
-(print-rat (add-rat one-half one-third))
+(print-rat (mul-rat one-half one-third))

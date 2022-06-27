@@ -1,0 +1,21 @@
+(define (mycons x y)
+      ; exp is defined in utils.scm
+  (* (exp 2 x) (exp 3 y)))
+
+(define (mycar x)
+  (define (get-twos x counter)
+    (if (= (remainder x 2) 0)
+        (get-twos (/ x 2) (+ counter 1))
+        counter))
+  (if (= (remainder x 3) 0)
+      (mycar (/ x 3)))
+      (get-twos x 0))
+
+(define (mycdr x)
+  (define (get-threes x counter)
+    (if (= (remainder x 3) 0)
+        (get-threes (/ x 3) (+ counter 1))
+        counter))
+  (if (= (remainder x 2) 0)
+      (mycdr (/ x 2)))
+      (get-threes x 0))
