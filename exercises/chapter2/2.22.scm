@@ -1,3 +1,5 @@
+; include square.scm
+
 ; code showed exercise 2.22
 ; code 1
 (define (square-list items)
@@ -33,6 +35,6 @@
     (if (null? things)
         answer
         (iter (cdr things)
-              (cons answer
+              (append answer
                     (list(square (car things)))))))
   (iter items (list)))
