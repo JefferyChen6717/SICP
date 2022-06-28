@@ -13,7 +13,7 @@ def main(argv):
     output_info = []
     for i in range(len(lines)):
         count = 0
-        while len(lines[i]) > 2 and lines[i][-2] == ' ':
+        while len(lines[i]) > 1 and lines[i][-2] == ' ':
             count += 1
             lines[i] = lines[i][: -2] + lines[i][-1]
         if count > 0:
@@ -27,6 +27,10 @@ def main(argv):
     file.close()
     for info in output_info:
         print(info)
+    file_name = path.split('/')[-1]
+    file_split = file_name.split('.')
+    if len(file_split) > 2 and len(file_split[1]) == 1:
+        os.rename(file_name, file_split[0] + '.0' + file_split[1] + '.scm')
 
 
 if __name__ == '__main__':
