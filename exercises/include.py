@@ -32,7 +32,7 @@ def main(argv):
     content = get_file_content(src_file_path .split('/')[-1])
     tar_file = open(os.path.join(
         work_dir,
-        src_file_path .split('/')[-1].replace('.scm', '') + '_full.scm'
+        src_file_path .split('/')[-1].replace('.scm', '') + '_included.scm'
     ), 'w')
     tar_file.write(content)
 

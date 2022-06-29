@@ -1,4 +1,4 @@
-; include 2.7.scm
+; include 2.07.scm
 
 (define (sub-interval x y)
    (make-interval

@@ -1,4 +1,4 @@
-; include 2.7.scm
+; include 2.07.scm
 (define (make-center-width c w)
   (make-interval (- c w) (+ c w)))
 

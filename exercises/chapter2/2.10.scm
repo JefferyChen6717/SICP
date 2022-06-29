@@ -1,4 +1,4 @@
-; include 2.7.scm
+; include 2.07.scm
 
 (define (contains-zero? x)
   (or (= (lower-bound x) 0)
