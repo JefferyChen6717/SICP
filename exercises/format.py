@@ -17,9 +17,9 @@ def main(argv):
             count += 1
             lines[i] = lines[i][: -2] + lines[i][-1]
         if count > 0:
-            output_info.append('delete ' + str(count) + ' redundant spaces at line: ' + str(i))
+            output_info.append('delete ' + str(count) + ' redundant space(s) at line: ' + str(i))
     while len(lines) > 0 and lines[-1] == '\n':
-        output_info.append('delete blank line at line: ' + str(len(lines)))
+        output_info.append('delete a blank line at line: ' + str(len(lines)))
         lines = lines[:-1]
     file = open(path, 'w')
     for line in lines:
