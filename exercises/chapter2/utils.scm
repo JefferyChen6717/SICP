@@ -23,10 +23,3 @@
 (define (list-has-next x) (not (null? (cdr x))))
 
 (define (list-add lst x) (append lst (list x)))
-
-; map func of list
-(define (map operation lst)
-  (if (null? lst)
-      lst
-      (cons (operation (car lst))
-            (map operation (cdr lst)))))
