@@ -1,3 +1,4 @@
+;;; it seems that this exercise could not word in chezscheme
 ; include map.scm
 
 (define (subsets s)
