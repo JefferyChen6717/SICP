@@ -1,7 +1,17 @@
-; include accumulate.asm
+; include accumulate.scm
 
 (define (accumulate-n op init seqs)
-  (if (null? (car seqs))
-    (list)
-    (cons (accumulate op init
-          (accumulate-n op init
+  (define (head sequences)
+    (if (or (null? sequences) (null? (car sequences)))
+        (list)
+        (cons (car (car sequences))
+              (head (cdr sequences)))))
+  (define (rest sequences)
+    (if (or (null? sequences) (null? (car sequences)))
+        (list)
+        (cons (cdr (car sequences))
+              (rest (cdr sequences)))))
+ (if (null? (car seqs))
+   (list)
+   (cons (accumulate op init (head seqs))
+         (accumulate-n op init (rest seqs)))))

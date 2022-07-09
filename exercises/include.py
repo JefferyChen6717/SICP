@@ -12,6 +12,7 @@ def get_file_content(file_path):
             file_path.replace('\n', '')
         ), 'r').readlines()
     except BaseException:
+        print("'{}' not found".format(file_path))
         exit(1)
     content = ''
     for line in lines:
@@ -30,11 +31,13 @@ def main(argv):
     work_dir = os.popen('pwd').readline().replace('\n', '')
     src_file_path = os.path.join(work_dir, argv[1].split('/')[-1])
     content = get_file_content(src_file_path .split('/')[-1])
+    include_name = src_file_path.split('/')[-1].replace('.scm', '') + '_included.scm'
     tar_file = open(os.path.join(
         work_dir,
-        src_file_path .split('/')[-1].replace('.scm', '') + '_included.scm'
+        include_name
     ), 'w')
     tar_file.write(content)
+    print("generate {} successfully".format(include_name))
 
 
 if __name__ == '__main__':
