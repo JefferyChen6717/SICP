@@ -1,0 +1,5 @@
+(define (print . x)
+  (define (iter x)
+    (if (not (null? x))
+        (begin (display (car x)) (newline) (iter (cdr x)))))
+  (iter x))
