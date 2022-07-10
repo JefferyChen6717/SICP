@@ -1,3 +1,4 @@
+; these codes are same as 2.38.scm
 ; include accumulate.scm
 
 (define (fold-left op initial sequence)
