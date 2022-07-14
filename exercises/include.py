@@ -41,4 +41,7 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    main(sys.argv)
+    if len (sys.argv) < 2:
+        print('no input file, please check')
+    else:
+        main(sys.argv)

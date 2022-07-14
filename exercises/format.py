@@ -44,7 +44,6 @@ def format(dir, file_path):
             print(info)
         print()
 
-
 def main(argv):
     dir = os.popen('pwd').readline().replace('\n', '').replace(' ', '')
     if len(argv) < 2 or argv[1] == '-a':

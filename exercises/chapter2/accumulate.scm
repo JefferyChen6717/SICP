@@ -2,7 +2,7 @@
   (if (null? sequence)
       initial
       (bi-func (car sequence)
-          (accumulate bi-func initial (cdr sequence)))))
+               (accumulate bi-func initial (cdr sequence)))))
 
 (define (accumulate-n op init seqs)
   (define (head sequences)
