@@ -47,3 +47,14 @@
 (define (remove item seq)
   (filter (lambda (x) (not (= x item)))
           seq))
+
+; 2.40
+(define (unique-pairs n)
+  (define (flatmap proc seq)
+    (filter (lambda (x) (not (null? x)))
+      (accumulate append '(()) (map proc seq))))
+  (flatmap
+    (lambda (i)
+      (map (lambda (j) (list i j))
+        (enumerate-interval 1 (- i 1))))
+    (enumerate-interval 1 n)))
