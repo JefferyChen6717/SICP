@@ -5,9 +5,9 @@
   (accumulate
     append
     '()
-    (map (lambda (j)
-           (map (lambda (k) (list j k))
-                (enumerate-interval 1 (- j 1))))
+    (map (lambda (i)
+           (map (lambda (j) (list i j))
+                (enumerate-interval 1 (- i 1))))
          (enumerate-interval 1 n))))
 
 (define (unique-triple-tuple n)
