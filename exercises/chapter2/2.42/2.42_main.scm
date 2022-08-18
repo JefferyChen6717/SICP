@@ -2,6 +2,15 @@
 ; include filter.scm
 ; include enumerate.scm
 
+; include 2.42_safe.scm
+
+(define (generate-board board-size)
+  (if (= board-size 0)
+      '()
+      (cons 0 (generate-board (- board-size 1)))))
+
+(define empty-board '())
+
 (define (queens board-size)
   (define (queen-cols k)
     (if (= k 0)

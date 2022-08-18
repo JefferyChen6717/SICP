@@ -22,7 +22,6 @@
                     (not (= last-number conflict2)))))))
   (iter 1 k positions))
 
-
 (define (safe? k positions)
   (and (no-row-conflict? positions)
        (no-incline-conflict? k positions)))
