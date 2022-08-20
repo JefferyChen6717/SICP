@@ -1,9 +1,6 @@
-; include flatmap
+; include flatmap.scm
 
-(define adjoin-position new-row k rest-of-queens
-  (if (= k 0)
+(define (adjoin-position new-row k rest-of-queens)
+  (if (= k 1)
       (list new-row)
-      (map
-        (lambda one-list (cons new-row one-list))
-        rest-of-queens)))
-  
+      (cons new-row rest-of-queens)))

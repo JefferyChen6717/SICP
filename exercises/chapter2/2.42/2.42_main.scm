@@ -3,11 +3,7 @@
 ; include enumerate.scm
 
 ; include 2.42_safe.scm
-
-(define (generate-board board-size)
-  (if (= board-size 0)
-      '()
-      (cons 0 (generate-board (- board-size 1)))))
+; include 2.42_adjoin_position.scm
 
 (define empty-board '())
 
@@ -22,5 +18,7 @@
               (map (lambda (new-row)
                      (adjoin-position new-row k rest-of-queens))
                    (enumerate-interval 1 board-size)))
-            (queens-cols (- k 1))))))
+            (queen-cols (- k 1))))))
   (queen-cols board-size))
+
+(display (queens 5))
