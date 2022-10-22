@@ -3,5 +3,6 @@
         ((and (not (pair? a)) (not (pair? b)) (eq? a b)) #t)
         ((and (pair? a)
               (pair? b))
-              (and (equal? (cdr a) (cdr b)) (equal? (car a) (car b))))
+              (equal? (cdr a) (cdr b)) 
+              (equal? (car a) (car b)))
         (else #f)))
