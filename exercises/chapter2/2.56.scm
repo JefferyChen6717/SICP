@@ -1,7 +1,7 @@
 ; (variable? e)
 ; (same-variable? v1 v2)
 ; (sum? e) whether e is a sum expression
-; (addend e) 
+; (addend e)
 ; (augend e)
 ; (make-sum a1 a2)
 ; (product? e) whether e is a product expression
